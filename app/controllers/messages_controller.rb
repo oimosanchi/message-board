@@ -4,10 +4,11 @@ class MessagesController < ApplicationController
     @message = Message.new
     # Messageを全て取得する。
     @messages = Message.all
-  def edit
   end
-
-def update
+ def edit
+  end
+  
+  def update
     if @message.update(message_params)
       # 保存に成功した場合はトップページへリダイレクト
       redirect_to root_path , notice: 'メッセージを編集しました'
@@ -16,7 +17,6 @@ def update
       render 'edit'
     end
   end
-  
    
    def create
     @message = Message.new(message_params)
@@ -42,8 +42,7 @@ def update
     redirect_to root_path, notice: 'メッセージを削除しました'
   end
 
-
-  def set_message
+def set_message
     @message = Message.find(params[:id])
   end
 end
